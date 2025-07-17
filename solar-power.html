@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>太阳能光伏发电 - 东弘科技</title>
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 自定义样式 -->
+  <style>
+    body {
+      scroll-behavior: smooth;
+    }
+    .text-primary {
+      color: #2563eb; /* 蓝色主色调 */
+    }
+    .bg-primary {
+      background-color: #2563eb;
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .solar-gradient {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- 头部导航（与主页面保持一致） -->
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+            <i class="fa fa-leaf text-white text-xl"></i>
+          </div>
+          <span class="text-xl font-bold">东弘科技</span>
+        </a>
+        
+        <!-- 桌面端导航 -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="index.html" class="text-gray-600 hover:text-primary transition-colors">首页</a>
+          <a href="index.html#about" class="text-gray-600 hover:text-primary transition-colors">关于我们</a>
+          <a href="technology-details.html" class="text-gray-600 hover:text-primary transition-colors">技术与设备</a>
+          <a href="solar-power.html" class="text-primary font-medium">太阳能发电</a> <!-- 当前页高亮 -->
+          <a href="index.html#projects" class="text-gray-600 hover:text-primary transition-colors">案例展示</a>
+          <a href="index.html#contact" class="text-gray-600 hover:text-primary transition-colors">联系我们</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-primary">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+      <div class="container mx-auto px-4 py-3 flex flex-col gap-3">
+        <a href="index.html" class="py-2 text-gray-600 hover:text-primary transition-colors">首页</a>
+        <a href="index.html#about" class="py-2 text-gray-600 hover:text-primary transition-colors">关于我们</a>
+        <a href="technology-details.html" class="py-2 text-gray-600 hover:text-primary transition-colors">技术与设备</a>
+        <a href="solar-power.html" class="py-2 text-primary font-medium">太阳能发电</a>
+        <a href="index.html#projects" class="py-2 text-gray-600 hover:text-primary transition-colors">案例展示</a>
+        <a href="index.html#contact" class="py-2 text-gray-600 hover:text-primary transition-colors">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 页面标题区 -->
+    <section class="solar-gradient py-16 text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-4">太阳能光伏发电</h1>
+        <p class="text-white/80 max-w-2xl mx-auto">
+          东弘科技专注于高效太阳能光伏发电技术研发与应用，为全球提供清洁能源解决方案
+        </p>
+      </div>
+    </section>
+
+    <!-- 技术原理 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-dark mb-10 text-center">技术原理</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <!-- 原理卡片1 -->
+          <div class="bg-gray-50 rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+              <i class="fa fa-sun-o text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-bold text-dark text-center mb-3">光能吸收</h3>
+            <p class="text-gray-600 text-center">
+              采用高效单晶硅/多晶硅光伏电池，吸收率高达98%，可将太阳光能转化为直流电
+            </p>
+          </div>
+          
+          <!-- 原理卡片2 -->
+          <div class="bg-gray-50 rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+              <i class="fa fa-bolt text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-bold text-dark text-center mb-3">逆变转换</h3>
+            <p class="text-gray-600 text-center">
+              通过智能逆变器，将直流电高效转换为交流电，转换效率达99.5%
+            </p>
+          </div>
+          
+          <!-- 原理卡片3 -->
+          <div class="bg-gray-50 rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 mx-auto">
+              <i class="fa fa-plug text-2xl text-primary"></i>
+            </div>
+            <h3 class="font-bold text-dark text-center mb-3">并网供电</h3>
+            <p class="text-gray-600 text-center">
+              采用自适应并网技术，实现与电网无缝对接，支持离网/并网双模运行
+            </p>
+          </div>
+        </div>
+        
+        <!-- 原理图 -->
+        <div class="mt-12 text-center">
+          <img src="https://i.imgur.com/jXWfYdJ.png" alt="太阳能发电原理图" class="w-full max-w-4xl mx-auto rounded-xl shadow-lg">
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品优势 -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-dark mb-10 text-center">产品优势</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- 优势1 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-tachometer text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">超高转换效率</h3>
+              <p class="text-gray-600">
+                采用N型TOPCon技术，量产效率达24.5%，实验室效率突破26.8%，比传统组件发电能力提升15%以上
+              </p>
+            </div>
+          </div>
+          
+          <!-- 优势2 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-calendar text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">超长使用寿命</h3>
+              <p class="text-gray-600">
+                采用耐候性材料和双玻结构设计，25年功率衰减不超过8%，远超行业平均水平
+              </p>
+            </div>
+          </div>
+          
+          <!-- 优势3 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-snowflake-o text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">低温性能优异</h3>
+              <p class="text-gray-600">
+                低温度系数(-0.27%/°C)，在高温环境下比常规组件多发电5-8%，更适合高温地区
+              </p>
+            </div>
+          </div>
+          
+          <!-- 优势4 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-shield text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">智能监控系统</h3>
+              <p class="text-gray-600">
+                搭载AI智能监控系统，实时监测发电状态，故障自动预警，运维成本降低30%
+              </p>
+            </div>
+          </div>
+          
+          <!-- 优势5 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-leaf text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">环保材料认证</h3>
+              <p class="text-gray-600">
+                全系列产品通过欧盟REACH认证，无有害物质，碳足迹降低40%，符合最严格环保标准
+              </p>
+            </div>
+          </div>
+          
+          <!-- 优势6 -->
+          <div class="flex gap-6 bg-white rounded-xl p-6 shadow-md hover-lift">
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <i class="fa fa-bolt text-xl text-primary"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-dark mb-2">弱光性能突出</h3>
+              <p class="text-gray-600">
+                采用纳米涂层技术，在清晨、傍晚及阴天等弱光条件下发电时间延长2小时以上
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 产品系列 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-dark mb-10 text-center">产品系列</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 产品1 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/sz6zK6L.png" alt="高效单晶光伏组件" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-xl mb-2">高效单晶光伏组件</h3>
+              <div class="space-y-2 text-gray-600 text-sm">
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>功率：450-580W</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>效率：21.5-23.8%</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>适用场景：大型地面电站、工商业屋顶</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>特点：高效率、低衰减、抗PID</p>
+              </div>
+              <button class="mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                查看详情
+              </button>
+            </div>
+          </div>
+          
+          <!-- 产品2 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/9lZc7rF.png" alt="柔性薄膜光伏组件" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-xl mb-2">柔性薄膜光伏组件</h3>
+              <div class="space-y-2 text-gray-600 text-sm">
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>功率：200-300W</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>效率：18-21%</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>适用场景：建筑一体化、车顶光伏、便携设备</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>特点：可弯曲、超轻、美观</p>
+              </div>
+              <button class="mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                查看详情
+              </button>
+            </div>
+          </div>
+          
+          <!-- 产品3 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/3n7d4dE.png" alt="智能光伏系统" class="w-full h-56 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-xl mb-2">智能光伏系统</h3>
+              <div class="space-y-2 text-gray-600 text-sm">
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>容量：3-500kW</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>转换效率：98.5-99.5%</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>适用场景：户用、工商业、微电网</p>
+                <p><i class="fa fa-check-circle text-primary mr-2"></i>特点：智能MPPT、远程监控、储能兼容</p>
+              </div>
+              <button class="mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
+                查看详情
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 应用场景 -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-dark mb-10 text-center">应用场景</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- 场景1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/bQpK6oR.png" alt="大型地面电站" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-3">大型地面电站</h3>
+              <p class="text-gray-600">
+                适用于荒漠、戈壁、荒山等大面积土地，装机容量从MW级到GW级，为区域电网提供稳定清洁能源。我们的组件可耐受极端环境，发电效率比同类产品高10%以上。
+              </p>
+            </div>
+          </div>
+          
+          <!-- 场景2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/SL2l9oG.png" alt="工商业屋顶光伏" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-3">工商业屋顶光伏</h3>
+              <p class="text-gray-600">
+                利用工厂、仓库、商场等建筑屋顶空间，自发自用，余电上网，降低企业用电成本。我们提供定制化解决方案，装机容量灵活，回收期短至3-5年。
+              </p>
+            </div>
+          </div>
+          
+          <!-- 场景3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/qJ7Zv9o.png" alt="户用分布式光伏" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-3">户用分布式光伏</h3>
+              <p class="text-gray-600">
+                为家庭住宅提供清洁能源解决方案，美观耐用，25年稳定收益。配备智能监控系统，手机APP实时查看发电数据，享受绿色生活的同时获得投资回报。
+              </p>
+            </div>
+          </div>
+          
+          <!-- 场景4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/5z5m7dE.png" alt="光伏建筑一体化" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-3">光伏建筑一体化(BIPV)</h3>
+              <p class="text-gray-600">
+                将光伏组件与建筑材料完美结合，如光伏幕墙、光伏瓦片、光伏遮阳棚等，既满足建筑美学需求，又实现发电功能。我们的BIPV产品已通过多项国际认证。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目案例 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-dark mb-10 text-center">项目案例</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 案例1 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/f5g7p3A.png" alt="新疆100MW光伏电站" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-2">新疆100MW荒漠光伏电站</h3>
+              <div class="flex items-center mb-3">
+                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">大型地面电站</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">
+                项目位于新疆哈密市，占地3000亩，采用我司高效单晶组件，年发电量1.8亿度，可满足15万户家庭年用电需求，每年减少碳排放15万吨。
+              </p>
+              <a href="#" class="text-primary hover:underline text-sm flex items-center">
+                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 案例2 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/3b8zX9c.png" alt="上海某工业园区光伏项目" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-2">上海某工业园区光伏项目</h3>
+              <div class="flex items-center mb-3">
+                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">工商业屋顶</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">
+                为上海某工业园区20栋厂房安装光伏系统，装机容量5MW，年发电量600万度，满足园区30%用电需求，每年节约电费400万元，回收期4.5年。
+              </p>
+              <a href="#" class="text-primary hover:underline text-sm flex items-center">
+                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 案例3 -->
+          <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover-lift">
+            <img src="https://i.imgur.com/7rZp9dL.png" alt="深圳某住宅小区光伏项目" class="w-full h-48 object-cover">
+            <div class="p-6">
+              <h3 class="font-bold text-dark text-lg mb-2">深圳某住宅小区光伏项目</h3>
+              <div class="flex items-center mb-3">
+                <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">户用分布式</span>
+              </div>
+              <p class="text-gray-600 text-sm mb-4">
+                为深圳某高端住宅小区120户家庭安装户用光伏系统，单户装机容量8kW，年发电量1.2万度，自发自用比例达85%，显著降低家庭用电成本。
+              </p>
+              <a href="#" class="text-primary hover:underline text-sm flex items-center">
+                查看详情 <i class="fa fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系咨询 -->
+    <section class="py-16 bg-primary/5">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <h2 class="text-2xl font-bold text-dark mb-6 text-center">咨询太阳能光伏发电解决方案</h2>
+          <p class="text-gray-600 text-center mb-8">
+            填写以下表单，我们的技术专家将在24小时内与您联系，为您提供定制化方案
+          </p>
+          
+          <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">姓名</label>
+                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">电话</label>
+                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的电话">
+              </div>
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
+              <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的邮箱">
+            </div>
+            
+            <div>
+              <label for="project" class="block text-sm font-medium text-gray-700 mb-1">项目类型</label>
+              <select id="project" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                <option value="">请选择项目类型</option>
+                <option value="residential">户用分布式光伏</option>
+                <option value="commercial">工商业屋顶光伏</option>
+                <option value="utility">大型地面电站</option>
+                <option value="bipv">光伏建筑一体化</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-medium text-gray-700 mb-1">咨询内容</label>
+              <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请简要描述您的需求或疑问"></textarea>
+            </div>
+            
+            <div class="flex justify-center">
+              <button type="submit" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl">
+                提交咨询
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-16 pb-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <!-- 公司信息 -->
+        <div>
+          <div class="flex items-center gap-2 mb-6">
+            <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+              <i class="fa fa-leaf text-white text-xl"></i>
+            </div>
+            <span class="text-xl font-bold">东弘科技</span>
+          </div>
+          <p class="text-gray-400 mb-6">
+            致力于新能源技术的研发与应用，为全球提供高效、清洁、可持续的能源解决方案。
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <i class="fa fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 快速链接 -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">快速链接</h4>
+          <ul class="space-y-3">
+            <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors">首页</a></li>
+            <li><a href="index.html#about" class="text-gray-400 hover:text-primary transition-colors">关于我们</a></li>
+            <li><a href="technology-details.html" class="text-gray-400 hover:text-primary transition-colors">技术与设备</a></li>
+            <li><a href="solar-power.html" class="text-primary">太阳能发电</a></li>
+            <li><a href="index.html#projects" class="text-gray-400 hover:text-primary transition-colors">案例展示</a></li>
+            <li><a href="index.html#contact" class="text-gray-400 hover:text-primary transition-colors">联系我们</a></li>
+          </ul>
+        </div>
+        
+        <!-- 核心产业 -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">核心产业</h4>
+          <ul class="space-y-3">
+            <li><a href="solar-power.html" class="text-gray-400 hover:text-primary transition-colors">太阳能光伏发电</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">风力发电系统</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">智能储能解决方案</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">微电网系统集成</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-primary transition-colors">新能源汽车充电设施</a></li>
+          </ul>
+        </div>
+        
+        <!-- 联系信息 -->
+        <div>
+          <h4 class="text-lg font-bold mb-6">联系我们</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <i class="fa fa-map-marker text-primary mt-1"></i>
+              <span class="text-gray-400">上海市浦东新区张江高科技园区科苑路88号</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa fa-phone text-primary"></i>
+              <span class="text-gray-400">400-888-9999</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fa fa-envelope text-primary"></i>
+              <span class="text-gray-400">contact@donghong-tech.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 版权信息 -->
+      <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-sm">
+        <p>© 2025 东弘科技有限公司 版权所有 | 沪ICP备12345678号</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 移动端菜单JS -->
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动端菜单
+          document.getElementById('mobile-menu').classList.add('hidden');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
