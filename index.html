@@ -247,60 +247,59 @@
   <!-- 浅灰色区域（约20%屏幕高度） -->
   <!-- 浅灰色区域 - 6个业务图标 -->
   <section class="h-[15vh] bg-gray-light flex items-center">
-    <div class="container mx-auto px-6">
-      <div class="grid grid-cols-6 gap-4">  <!-- 缩小间距为gap-4 -->
-        <!-- 业务1 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">  <!-- 改为gray-500 -->
-            <i class="fa fa-sun-o"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">光伏</h3>  <!-- 改为gray-500 -->
-        </div>
-        
-        <!-- 业务2 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">
-            <i class="fa fa-leaf"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">风电</h3>
-        </div>
-        
-        <!-- 业务3 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">
-            <i class="fa fa-battery"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">储能系统</h3>
-        </div>
-        
-        <!-- 业务4 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">
-            <i class="fa fa-cubes"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">新材料</h3>
-        </div>
-        
-        <!-- 业务5 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">
-            <i class="fa fa-truck"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">新能源重卡</h3>
-        </div>
-        
-        <!-- 业务6 -->
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-gray-500 text-4xl mb-3 scale-hover">
-            <i class="fa fa-flask"></i>
-          </div>
-          <h3 class="text-xl font-semibold text-gray-500">氢能源</h3>
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-6 gap-4">
+          <!-- 业务1 - 光伏 -->
+          <a href="solar-power.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-sun-o"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">光伏</h3>
+          </a>
+          
+          <!-- 业务2 - 风电 -->
+          <a href="wind-power.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-leaf"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">风电</h3>
+          </a>
+          
+          <!-- 业务3 - 储能系统 -->
+          <a href="energy-storage.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-battery"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">储能系统</h3>
+          </a>
+          
+          <!-- 业务4 - 新材料 -->
+          <a href="materials.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-cubes"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">新材料</h3>
+          </a>
+          
+          <!-- 业务5 - 新能源重卡 -->
+          <a href="truck.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-truck"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">新能源重卡</h3>
+          </a>
+          
+          <!-- 业务6 - 氢能源 -->
+          <a href="hydrogen.html" class="flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 hover:bg-gray-200 group">
+            <div class="text-gray-500 text-4xl mb-3 transition-colors duration-300 group-hover:text-primary">
+              <i class="fa fa-flask"></i>
+            </div>
+            <h3 class="text-xl font-semibold text-gray-500 transition-colors duration-300 group-hover:text-primary">氢能源</h3>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-  
-  
+    </section>
+        
 <!-- 公司介绍 -->
 <!-- 公司介绍 -->
 <section id="about" class="py-20 bg-white">
