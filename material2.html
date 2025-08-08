@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>碳纤维筋 - 东弘中纤</title>
+  <!-- 引入外部资源 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 自定义样式 -->
+  <!-- Tailwind配置 - 更新深蓝色定义为#325f7c -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'gray-light': '#F1F5F9',
+            accent: '#165DFF',
+            'deep-blue': '#4a7a9c', // 更新为目标颜色
+            'deep-blue-light': '#4a7a9c', // 对应浅色变体
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+      }
+      .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+      .scale-hover {
+        @apply hover:scale-105 transition-all duration-300;
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+      .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter text-dark bg-light">
+  <!-- 导航栏 - 使用新的深蓝色 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-deep-blue/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="zhongxian.html" class="flex items-center">
+        <div class="h-12 w-40 bg-cover bg-center" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+      </a>
+    
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="zhongxian.html#home" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">首页</a>
+        
+        <!-- 公司介绍带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            公司介绍
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="company-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">公司简介</a>
+              <a href="team-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">团队介绍</a>
+              <a href="awards2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">企业资质</a>
+              <a href="collaboration2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">合作伙伴</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="display.html" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">产品展示</a>
+        
+        <!-- 应用领域带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            应用领域
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="application.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">应用场景</a>
+              <a href="potential.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">市场潜力</a>
+              <a href="example.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">案例展示</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 技术与设备带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            技术与设备
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="patents.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">专利信息</a>
+              <a href="factory.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">生产基地</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">联系我们</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-white hover:text-primary">
+        <i class="fa fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 - 修改为深蓝色 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-deep-blue border-t border-deep-blue-light shadow-lg">
+      <div class="container mx-auto px-6 py-4">
+        <a href="zhongxian.html#home" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">首页</a>
+        
+        <!-- 移动端公司介绍子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            公司介绍
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="company-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">公司简介</a>
+            <a href="team-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">团队介绍</a>
+            <a href="awards2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">企业资质</a>
+            <a href="collaboration2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">合作伙伴</a>
+          </div>
+        </div>
+        
+        <a href="display.html" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">产品展示</a>
+        
+        <!-- 移动端应用领域子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            应用领域
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="application.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">应用场景</a>
+            <a href="potential.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">市场潜力</a>
+            <a href="example.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">案例展示</a>
+          </div>
+        </div>
+        
+        <!-- 移动端技术与设备子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            技术与设备
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="patents.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">专利信息</a>
+            <a href="factory.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">生产基地</a>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 页面主体内容 -->
+  <main>
+    <!--  banner区域 -->
+    <section class="relative h-64 md:h-80 bg-gray-100 overflow-hidden pb-8">
+        <div class="absolute inset-0 z-0">
+          <img src="https://s21.ax1x.com/2025/07/29/pVY2qvn.png" alt="东弘科技企业形象" class="w-full h-full object-cover opacity-60">
+          <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 h-full flex items-end pb-12">
+          <div>
+              
+            <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-4">新材料产品展示</h1>
+            <div class="flex items-center text-white/90">
+              <a href="zhongxian.html#home" class="hover:text-white transition-colors">首页</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <a href="display.html#home" class="hover:text-white transition-colors">产品展示</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <a href="" class="hover:text-white transition-colors">FRP筋材</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <span>碳纤维筋</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <!-- 返回按钮 -->
+  <div class="fixed top-100 left-4 z-40">
+    <a href="display.html" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-full shadow-md hover:bg-primary/90 transition-colors">
+      <i class="fa fa-arrow-left mr-2"></i>
+      <span>返回</span>
+    </a>
+  </div>
+
+  <main class="pt-8 pb-16 px-4 md:px-12 max-w-7xl mx-auto">
+    <!-- 页面标题区 -->
+    <section class="py-8">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between">
+        <div>
+          <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-2">碳纤维筋</h1>
+          <p class="text-gray-600">东弘中纤先进复合材料解决方案</p>
+        </div>
+        <div class="mt-4 md:mt-0">
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 材料详情区 -->
+    <section class="py-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- 左侧大图 -->
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <img src="https://pic1.imgdb.cn/item/689305b758cb8da5c80963a2.webp" alt="碳纤维增强复合材料" class="w-full h-auto">
+        </div>
+        
+        <!-- 右侧描述 -->
+        <div>
+          <h2 class="text-xl font-bold mb-4">材料概述</h2>
+          <p class="text-gray-600 mb-4">
+          碳纤维筋(CFRP rebar)是以碳纤维为增强材料的FRP筋。利用碳纤维高强度和高模量的特性，所得筋材具有比强度和比模量高、力学性能优异的特点，广泛应用于预应力结构，如预应力梁、防震房屋、桥梁拉索等。
+          </p>
+          
+          <!-- 核心优势部分 - 修复灰色背景 -->
+          <div class="bg-gray-100 rounded-lg p-6 mb-6 shadow-sm" style="background-color: #f3f4f6 !important;">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+              <i class="fa fa-lightbulb-o text-primary mr-2"></i>
+              核心优势
+            </h3>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                <span>超高抗拉强度：强度可达钢材的 10 倍以上，大幅提升结构承载能力</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                <span>极致轻量化：密度仅为钢材的 1/4，显著降低整体结构自重</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                <span>卓越耐候性：完全不受酸碱、盐雾侵蚀，适用于极端腐蚀环境</span>
+              </li>
+              <li class="flex items-start">
+                <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                <span>低松弛特性：长期受力下变形极小，保障结构长期稳定性</span>
+              </li>
+            </ul>
+          </div>
+
+          
+          <a href="#specifications" class="inline-flex items-center text-primary font-medium hover:underline">
+            查看详细技术参数 <i class="fa fa-arrow-down ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技术参数表格 -->
+    <section id="specifications" class="py-8">
+      <h2 class="text-xl font-bold mb-6">技术参数</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+          <thead>
+            <tr class="bg-gray-200">
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">产品型号</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">大小</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">公称直径(mm)</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">横截面积(mm²)</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">极限抗拉力(KN)</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">保证抗拉强度(MPa)</th>
+              <th class="py-4 px-4 border-b text-left text-base font-semibold text-gray-700">弹性模量(GPa)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-gray-50">
+              <td class="py-4 px-4 border-b text-base text-gray-600">B100-6</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">2</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">6</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">31.67</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">71</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">2241</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">124</td>
+            </tr>
+            <tr>
+              <td class="py-4 px-4 border-b text-base text-gray-600">B100-10</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">3</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">10</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">71.26</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">154</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">2172</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">124</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-4 px-4 border-b text-base text-gray-600">B100-13</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">4</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">13</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">126.7</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">262</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">2068</td>
+              <td class="py-4 px-4 border-b text-base text-gray-600">124</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+   
+
+    <!-- 相关产品推荐 -->
+    <section class="py-8">
+      <h2 class="text-xl font-bold mb-6">相关产品</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="material1.html" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all">
+          <img src="https://pic1.imgdb.cn/item/689304d258cb8da5c80962ed.png" alt="轻质铝合金材料" class="w-20 h-20 object-cover rounded mr-4">
+          <div>
+            <h3 class="font-medium">玄武岩纤维筋</h3>
+            <p class="text-sm text-gray-600">查看详情</p>
+          </div>
+        </a>
+        <a href="material3.html" class="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md transition-all">
+          <img src="https://pic1.imgdb.cn/item/689305b758cb8da5c80963a3.jpg" alt="高效光伏封装材料" class="w-20 h-20 object-cover rounded mr-4">
+          <div>
+            <h3 class="font-medium">玻璃纤维筋</h3>
+            <p class="text-sm text-gray-600">查看详情</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <!-- 页脚 - 使用新的深蓝色 -->
+  <footer class="bg-deep-blue text-white py-12 md:py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <!-- 品牌信息 -->
+        <div>
+          <div class="h-12 w-40 bg-cover bg-center mb-4" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+          <p class="text-white/80 mb-6">
+            专注FRP复合材料研发与生产，为新能源产业提供高性能材料解决方案，助力绿色低碳发展。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-weixin text-xl"></i>
+            </a>
+      
+            <a href="#" class="text-white/80 hover:text-white transition-colors">
+              <i class="fa fa-envelope text-xl"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- 快速链接 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">目录</h3>
+          <ul class="space-y-2">
+            <li><span class="text-white/80 cursor-default">首页</span></li>
+            <li><span class="text-white/80 cursor-default">公司介绍</span></li>
+            <li><span class="text-white/80 cursor-default">产品展示</span></li>
+            <li><span class="text-white/80 cursor-default">应用领域</span></li>
+            <li><span class="text-white/80 cursor-default">技术与设备</span></li>
+            <li><span class="text-white/80 cursor-default">联系我们</span></li>
+          </ul>
+        </div>
+        
+        <!-- 产品中心 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">产品中心</h3>
+          <ul class="space-y-2">
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP筋材</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP紧固件</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP模压件</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP桥梁系统</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP螺纹筋材</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">护栏&爬梯</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP光伏支架系统</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP拉挤型材</a></li>
+            <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆、筋材配件</a></li>
+          </ul>
+        </div>
+        
+        <!-- 联系信息 -->
+        <div>
+          <h3 class="text-lg font-semibold mb-4">联系信息</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker mt-1 mr-3 text-white/80"></i>
+              <span class="text-white/80">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-phone mr-3 text-white/80"></i>
+              <span class="text-white/80">+86 13850080767</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-envelope mr-3 text-white/80"></i>
+              <span class="text-white/80">DOHO_Tech@163.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- 版权信息 -->
+      <div class="pt-8 border-t border-white/10 text-center text-white/60">
+        <p>© 东弘中纤（厦门）先进结构材料研究院 版权所有 | 闽ICP备12345678号</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // 产品类型菜单切换功能
+    document.addEventListener('DOMContentLoaded', function() {
+      // 获取所有产品类型按钮和产品展示区域
+      const productButtons = document.querySelectorAll('.product-type-btn');
+      const productSections = document.querySelectorAll('.product-section');
+      
+      // 为每个按钮添加点击事件
+      productButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // 获取按钮对应的索引
+          const index = parseInt(this.getAttribute('data-index'));
+          
+          // 更新按钮样式
+          productButtons.forEach(btn => {
+            btn.classList.remove('bg-primary', 'text-white');
+            btn.classList.add('bg-gray-light', 'text-dark');
+          });
+          this.classList.remove('bg-gray-light', 'text-dark');
+          this.classList.add('bg-primary', 'text-white');
+          
+          // 隐藏所有产品展示区域
+          productSections.forEach(section => {
+            section.classList.add('hidden');
+          });
+          
+          // 显示对应索引的产品展示区域
+          if (productSections[index]) {
+            productSections[index].classList.remove('hidden');
+            // 添加淡入动画效果
+            productSections[index].classList.add('animate-fade-in');
+            setTimeout(() => {
+              productSections[index].classList.remove('animate-fade-in');
+            }, 800);
+          }
+        });
+      });
+      
+      // 移动端菜单切换
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+      
+      // 移动端子菜单切换
+      const submenuToggles = document.querySelectorAll('.submenu-toggle');
+      submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const submenuContent = this.closest('.mobile-submenu').querySelector('.submenu-content');
+          submenuContent.classList.toggle('hidden');
+          this.classList.toggle('rotate-180');
+        });
+      });
+      
+      // 导航栏滚动效果
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('py-2', 'shadow-md');
+          navbar.classList.remove('py-4', 'shadow-sm');
+        } else {
+          navbar.classList.add('py-4', 'shadow-sm');
+          navbar.classList.remove('py-2', 'shadow-md');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>储能系统 | 东弘科技</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'gray-light': '#F1F5F9'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter text-dark bg-light">
+  <!-- 导航栏 - 调整了高度、菜单间距和文字大小 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-gray-800/90 backdrop-blur-md shadow-sm">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="index.html" class="flex items-center">
+            <div class="h-12 w-40 bg-cover bg-center" style="background-image: url('https://s21.ax1x.com/2025/07/29/pVY2o4g.png')"></div>
+          </a>
+        
+        <!-- 桌面导航 - 包含子菜单 -->
+        <nav class="hidden md:flex items-center space-x-12">
+          <a href="index.html#home" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg">首页</a>
+          
+          <!-- 公司介绍子菜单 -->
+          <div class="relative group">
+            <a href="" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg flex items-center">
+              公司介绍
+              <i class="fa fa-angle-down ml-1 text-sm"></i>
+            </a>
+            <!-- 子菜单内容 -->
+            <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="company-introduction.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">公司简介</a>
+                <a href="team-introduction.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">团队介绍</a>
+                <a href="awards.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">企业资质</a>
+                <a href="collaboration.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">合作伙伴</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 核心产业子菜单 -->
+          <div class="relative group">
+            <a href="" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg flex items-center">
+              核心产业
+              <i class="fa fa-angle-down ml-1 text-sm"></i>
+            </a>
+            <!-- 子菜单内容 -->
+            <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="solar-power.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">太阳能光伏发电</a>
+                <a href="wind-power.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">风力发电</a>
+                <a href="energy-storage.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">储能系统</a>
+                <a href="materials.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">新材料</a>
+                <a href="truck.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">新能源重卡</a>
+                <a href="hydrogen.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">氢能源</a>
+                <a href="medical.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">医疗</a>
+              </div>
+            </div>
+          </div>
+          
+
+          
+          <a href="index.html#contact" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg">联系方式</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="md:hidden text-white hover:text-primary">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- 移动端导航菜单 -->
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+          <!-- 移动端菜单项带子菜单 -->
+          <div class="mb-4">
+            <a href="index.html#home" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg block">首页</a>
+          </div>
+          
+          <!-- 公司介绍移动端子菜单 -->
+          <div class="mb-4 border-b border-gray-700 pb-2">
+            <div class="flex justify-between items-center">
+              <a href="#about" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg">公司介绍</a>
+              <button class="mobile-submenu-toggle text-white">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </div>
+            <div class="mobile-submenu hidden pl-4 mt-2">
+              <a href="company-introduction.html" class="block py-2 text-gray-300 hover:text-white">公司简介</a>
+              <a href="team-introduction.html" class="block py-2 text-gray-300 hover:text-white">团队介绍</a>
+              <a href="awards.html" class="block py-2 text-gray-300 hover:text-white">企业资质</a>
+              <a href="collaboration.html" class="block py-2 text-gray-300 hover:text-white">合作伙伴</a>
+            </div>
+          </div>
+          
+          <!-- 核心产业移动端子菜单 -->
+          <div class="mb-4 border-b border-gray-700 pb-2">
+            <div class="flex justify-between items-center">
+              <a href="#industry" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg">核心产业</a>
+              <button class="mobile-submenu-toggle text-white">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </div>
+            <div class="mobile-submenu hidden pl-4 mt-2">
+              <a href="solar-power.html" class="block py-2 text-gray-300 hover:text-white">太阳能光伏发电</a>
+              <a href="wind-power.html" class="block py-2 text-gray-300 hover:text-white">风力发电</a>
+              <a href="energy-storage.html" class="block py-2 text-gray-300 hover:text-white">储能系统</a>
+              <a href="materials.html" class="block py-2 text-gray-300 hover:text-white">新材料</a>
+              <a href="truck.html" class="block py-2 text-gray-300 hover:text-white">新能源重卡</a>
+              <a href="hydrogen.html" class="block py-2 text-gray-300 hover:text-white">氢能源</a>
+              <a href="medical.html" class="block py-2 text-gray-300 hover:text-white">医疗</a>
+            </div>
+          </div>
+          
+          <!-- 技术与设备移动端子菜单 -->
+          <div class="mb-4">
+            <a href="index.html#contact" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg block">联系方式</a>
+          </div>
+        </div>
+      </div>
+    </header>
+<body class="font-inter text-dark bg-light pt-20">
+  
+  
+  
+  
+  <!-- 页面主体内容 -->
+  <main>
+    <!--  banner区域 -->
+    <section class="relative h-64 md:h-80 bg-gray-100 overflow-hidden pb-8"> <!-- 增加了pb-8 -->
+        <div class="absolute inset-0 z-0">
+          <img src="https://pic1.imgdb.cn/item/688ada1a58cb8da5c8f2de6d.png" alt="东弘科技企业形象" class="w-full h-full object-cover opacity-60">
+          <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 h-full flex items-end pb-12"> <!-- 改为items-end并增加pb-12 -->
+          <div>
+              
+            <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-4">储能系统</h1>
+            <div class="flex items-center text-white/90">
+              <a href="index.html#home" class="hover:text-white transition-colors">首页</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <a href="" class="hover:text-white transition-colors">核心产业</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <span>储能系统</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- 公司简介 -->
+    <!-- 储能系统详情区域 -->
+    <!-- 储能系统详情区域 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col">
+          <div>
+            <h2 class="text-3xl font-bold mb-6 text-dark">储能系统</h2>
+            <div class="w-16 h-1 bg-primary mb-8"></div>
+            
+            <h3 class="text-2xl font-semibold mb-4 text-dark">飞轮储能</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              飞轮储能技术是一种新兴电能存储技术，通过在低摩擦环境中高速旋转的转子来存储动能。其核心组成包括两大部分：一是飞轮本体，集成了磁悬浮轴承、高强度转子和一体化电机；二是智能充放电控制器，负责能量的高效转换与管理。这种技术凭借独特的物理储能原理，具备多项显著优势：充放电循环效率可达到90%以上，能够实现每秒级的高频次充放电操作，瞬时功率输出可达兆瓦级，响应速度快至毫秒级，设计使用寿命超过20年，且整个工作过程无污染物排放，是一种真正的绿色储能方案。
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              在应用场景方面，飞轮储能展现出极强的适应性。在电力系统中，可用于一次调频和惯量调节，快速平抑电网频率波动，提升电网稳定性；在工业领域，适用于高速电机的能量回收与缓冲，降低能源损耗；在轨道交通领域，能有效回收制动能量并重新利用；同时，在UPS不间断电源系统和军工国防等对可靠性要求极高的领域，也拥有不可替代的应用价值。据行业测算，该技术的潜在市场规模每年超过5000亿元，发展前景广阔。
+            </p>
+            
+            <h3 class="text-2xl font-semibold mb-4 text-dark">铁基液流电池</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              铁基液流电池是基于特异性铁螯合物分子材料创新开发的新型储能技术，其核心优势在于大容量、高安全、高效能、长寿命和可回收。与传统电池技术相比，该电池通过电解液中铁离子的氧化还原反应实现能量存储与释放，具有独特的优势：电解质为水性溶液，本征安全性极高，从根本上杜绝了燃烧爆炸风险；储能容量可通过增减电解液体积灵活调整，能满足从几小时到几十小时的多种储能时长需求；核心材料为储量丰富、价格低廉的铁基化合物，摆脱了对锂、钴等稀缺资源的依赖，显著降低了成本。
+            </p>
+            <div class="overflow-x-auto mb-8">
+              <table class="min-w-full border-collapse">
+                <thead>
+                  <tr class="bg-gray-light">
+                    <th class="border border-gray-300 px-4 py-2 text-left">储能技术</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">安全性</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">储能时长</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">资源情况</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">选址</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">建设周期</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">度电成本</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">铁基液流电池</td>
+                    <td class="border border-gray-300 px-4 py-2">本征安全</td>
+                    <td class="border border-gray-300 px-4 py-2">多种储能时长均可实现</td>
+                    <td class="border border-gray-300 px-4 py-2">铁基材料便宜且易得</td>
+                    <td class="border border-gray-300 px-4 py-2">灵活</td>
+                    <td class="border border-gray-300 px-4 py-2">1年</td>
+                    <td class="border border-gray-300 px-4 py-2">0.23元/度（以8小时测算）</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              该技术得到了锂电池发明人、诺贝尔奖获得者John B. Goodenough教授的高度评价，被誉为“电化学储能领域的革命性创新，非常适合大型电站储能”。目前已在多个大型储能示范项目中应用，其度电成本以8小时储能时长测算仅为0.23元，建设周期约1年，选址灵活，可广泛部署于新能源电站、电网侧储能以及用户侧工商业储能场景，为大规模可再生能源消纳提供有力支撑。
+            </p>
+            
+            <h3 class="text-2xl font-semibold mb-4 text-dark">镁基固态电池</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              镁基固态电池是针对传统锂电池痛点开发的新一代储能技术，有效解决了磷酸铁锂、三元锂电池低温性能差、容量衰减突出、安全性不足等问题。其创新点在于采用新型含镁聚合物正极和硬碳覆合物负极，电解质为固态或半固态体系，从而具备多项突破性优势：在-40℃的极端低温环境下仍能保持良好的容量输出，无需额外加热系统，特别适用于寒冷地区；能量密度达到350Wh/kg，高于传统锂电池；安全性大幅提升，在高温、短路、碰撞等极端情况下不易燃烧爆炸；循环寿命超过6000次，且成本较三元锂电池更低，仅为1000元/kwh。
+            </p>
+            <div class="overflow-x-auto mb-8">
+              <table class="min-w-full border-collapse">
+                <thead>
+                  <tr class="bg-gray-light">
+                    <th class="border border-gray-300 px-4 py-2 text-left">性能</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">镁基固态电池</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">三元锂电池</th>
+                    <th class="border border-gray-300 px-4 py-2 text-left">磷酸铁锂电池</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">成分</td>
+                    <td class="border border-gray-300 px-4 py-2">正极：新型含镁聚合物<br>负极：硬碳覆合物</td>
+                    <td class="border border-gray-300 px-4 py-2">正极：三元材料（锰钴镍）<br>负极：石墨</td>
+                    <td class="border border-gray-300 px-4 py-2">正极：磷酸铁锂<br>负极：石墨</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">高低温性能</td>
+                    <td class="border border-gray-300 px-4 py-2">低温性能好，满足-40℃环境工作</td>
+                    <td class="border border-gray-300 px-4 py-2">高温下循环性较好，低温下较差</td>
+                    <td class="border border-gray-300 px-4 py-2">高温下循环性较好，低温下较差</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">能量密度</td>
+                    <td class="border border-gray-300 px-4 py-2">350Wh/kg</td>
+                    <td class="border border-gray-300 px-4 py-2">250Wh/kg</td>
+                    <td class="border border-gray-300 px-4 py-2">150Wh/kg</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">安全性</td>
+                    <td class="border border-gray-300 px-4 py-2">高温短路等极端情况安全，不易燃烧、爆炸</td>
+                    <td class="border border-gray-300 px-4 py-2">高温短路等极端情况有一定安全隐患</td>
+                    <td class="border border-gray-300 px-4 py-2">碰撞、穿刺易燃烧、爆炸</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">适用场景</td>
+                    <td class="border border-gray-300 px-4 py-2">超低温、高倍率、高比能量、高可靠的多场景</td>
+                    <td class="border border-gray-300 px-4 py-2">更高能量密度，安全性要求不高的场景</td>
+                    <td class="border border-gray-300 px-4 py-2">注重安全性和寿命，且对能量密度要求不高</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">成本</td>
+                    <td class="border border-gray-300 px-4 py-2">1000/kwh</td>
+                    <td class="border border-gray-300 px-4 py-2">1200/kwh</td>
+                    <td class="border border-gray-300 px-4 py-2">800元/kwh</td>
+                  </tr>
+                  <tr>
+                    <td class="border border-gray-300 px-4 py-2">寿命</td>
+                    <td class="border border-gray-300 px-4 py-2">6000次以上</td>
+                    <td class="border border-gray-300 px-4 py-2">约3000次</td>
+                    <td class="border border-gray-300 px-4 py-2">6000次以上</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              镁基固态电池的应用场景十分广泛，既可以作为动力电池用于新能源重卡、低温作业车辆等领域，也能作为储能电池部署于储能电站。目前已在军用发动机启动电源、低温水下工作机器人电池组、军用便携式启动电源、低温无人侦察机等特种领域得到应用，其优异的综合性能为极端环境下的能源供应提供了可靠解决方案。
+            </p>
+
+            <h3 class="text-2xl font-semibold mb-4 text-dark">1280超充设备</h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              1280超充设备是配套储能与新能源车辆的关键基础设施，具备高效、安全、智能的特点，能够满足大功率快速充电需求。该设备支持刷卡、扫码（微信、支付宝、云闪付）等多种支付方式，联网方式灵活，可实现单机运行、以太网连接或4G无线连接，适应不同场景的部署需求。在安全防护方面，集成了充电枪温度检测、过压保护、欠压保护、过载保护、短路保护、接地保护、过温保护、低温保护、绝缘监测保护、极性反接保护、防雷保护、急停保护、漏电保护等全方位安全功能，确保充电过程安全可靠。
+            </p>
+            <h4 class="text-xl font-medium mb-3 text-dark">核心技术参数与性能指标</h4>
+            <ul class="text-gray-600 mb-6 space-y-2">
+              <li>• 输入电压：AC380V，适配工业及商业供电系统</li>
+              <li>• 输入频率：50Hz，兼容我国电网标准</li>
+              <li>• 输出电压：200～1000V DC，可适配不同类型电池</li>
+              <li>• 额定输出电流：0～1200A，支持大电流快速充电</li>
+              <li>• 输出功率：60KW～1200KW（智能功率分配），根据电池状态动态调整</li>
+              <li>• 限流保护值：110%，防止过流损坏设备及电池</li>
+              <li>• 稳压精度：0.50%，确保充电电压稳定</li>
+              <li>• 稳流精度：1%，保证充电电流稳定可控</li>
+              <li>• 纹波系数：0.50%，减少对电池的冲击</li>
+              <li>• 效率：96%，能量转换效率高，能耗低</li>
+              <li>• 功率因数：0.99 (50%负载以上），对电网影响小</li>
+              <li>• 谐波含量THD：5% (50%负载以上），符合电网谐波标准</li>
+              <li>• MTBF（平均无故障工作时间）：≥8760h，设备可靠性高</li>
+              <li>• 防护等级：IP54，具备防尘防水能力，适应户外环境</li>
+              <li>• 噪声控制：≤60dB，运行噪音低，不影响周边环境</li>
+              <li>• 工作温度：－20℃~＋50℃，适应不同气候区域</li>
+              <li>• 工作湿度：5%～95%无凝露，在潮湿环境下可稳定工作</li>
+              <li>• 工作海拔：≤3000m，可在高原地区部署应用</li>
+            </ul>
+            <p class="text-gray-600 leading-relaxed">
+              该超充设备的推出，有效解决了新能源车辆充电慢的痛点，特别是为新能源重卡等大型车辆提供了高效补能方案，与镁基固态电池等新型储能技术配合使用，形成了“储能-充电-应用”的完整闭环，推动新能源产业的规模化发展。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
+<!-- 页脚 -->
+<footer class="bg-dark text-white py-12">
+<div class="container mx-auto px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div>
+      <!-- 替换为图片 -->
+      <div class="mb-6">
+        <img src="https://s21.ax1x.com/2025/07/29/pVY2o4g.png" alt="东弘科技Logo" class="h-12">
+      </div>
+      <p class="text-gray-400 mb-6">
+        东弘科技致力于新能源技术的研发与应用，为全球提供高效、清洁、可持续的能源解决方案。
+      </p>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fa fa-weixin"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div>
+      <h4 class="text-lg font-bold mb-6">目录</h4>
+      <ul class="space-y-3">
+        <li class="text-gray-400">首页</li>
+        <li class="text-gray-400">公司介绍</li>
+        <li class="text-gray-400">核心产业</li>
+        <li class="text-gray-400">联系方式</li>
+      </ul>
+    </div>
+    
+    <div>
+        <h4 class="text-lg font-bold mb-6">核心产业</h4>
+                  <ul class="space-y-3">
+                    <li><a href="solar-power.html" class="text-gray-400 hover:text-white transition-colors">太阳能光伏发电</a></li>
+                    <li><a href="wind-power.html" class="text-gray-400 hover:text-white transition-colors">风力发电</a></li>
+                    <li><a href="energy-storage.html" class="text-gray-400 hover:text-white transition-colors">储能系统</a></li>
+                    <li><a href="materials.html" class="text-gray-400 hover:text-white transition-colors">新材料</a></li>
+                    <li><a href="truck.html" class="text-gray-400 hover:text-white transition-colors">新能源重卡</a></li>
+                    <li><a href="hydrogen.html" class="text-gray-400 hover:text-white transition-colors">氢能源</a></li>
+                    <li><a href="medical.html" class="text-gray-400 hover:text-white transition-colors">医疗</a></li>
+                  </ul>
+                </div>
+    
+    <div>
+      <h4 class="text-lg font-bold mb-6">联系方式</h4>
+      <ul class="space-y-3">
+        <li class="flex items-start space-x-3">
+          <i class="fa fa-map-marker text-primary mt-1"></i>
+          <span class="text-gray-400">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <i class="fa fa-phone text-primary mt-1"></i>
+          <span class="text-gray-400">+86 13850080767</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <i class="fa fa-envelope text-primary mt-1"></i>
+          <span class="text-gray-400">DOHO_Tech@163.com</span>
+        </li>
+        <li class="flex items-start space-x-3">
+          <i class="fa fa-clock-o text-primary mt-1"></i>
+          <span class="text-gray-400">周一至周五: 9:00 - 18:00</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 东弘科技. 保留所有权利.</p>
+
+  </div>
+</div>
+</footer>
+
+<!-- 回到顶部按钮 -->
+<button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+<i class="fa fa-arrow-up"></i>
+</button>
+
+<!-- JavaScript -->
+<script>
+// 导航栏滚动效果
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 100) {
+    navbar.classList.add('py-2', 'shadow-md', 'bg-gray-900/95');
+    navbar.classList.remove('py-3', 'shadow-sm', 'bg-gray-800/90');
+    backToTop.classList.remove('opacity-0', 'invisible');
+    backToTop.classList.add('opacity-100', 'visible');
+  } else {
+    navbar.classList.add('py-3', 'shadow-sm', 'bg-gray-800/90');
+    navbar.classList.remove('py-2', 'shadow-md', 'bg-gray-900/95');
+    backToTop.classList.add('opacity-0', 'invisible');
+    backToTop.classList.remove('opacity-100', 'visible');
+  }
+});
+
+// 移动端菜单切换
+const menuToggle = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+menuToggle.addEventListener('click', function() {
+  mobileMenu.classList.toggle('hidden');
+  if (mobileMenu.classList.contains('hidden')) {
+    menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+  } else {
+    menuToggle.innerHTML = '<i class="fa fa-times text-xl"></i>';
+  }
+});
+
+// 产品类型切换功能
+const productTypeBtns = document.querySelectorAll('.product-type-btn');
+const productSections = document.querySelectorAll('.product-section');
+
+productTypeBtns.forEach((btn, index) => {
+  btn.addEventListener('click', function() {
+    // 更新按钮样式
+    productTypeBtns.forEach(b => {
+      b.classList.remove('bg-primary', 'text-white');
+      b.classList.add('bg-gray-light', 'text-dark');
+    });
+    this.classList.remove('bg-gray-light', 'text-dark');
+    this.classList.add('bg-primary', 'text-white');
+    
+    // 显示对应的产品区域
+    productSections.forEach(section => section.classList.add('hidden'));
+    if (index < productSections.length) {
+      productSections[index].classList.remove('hidden');
+    }
+  });
+});
+
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
+      
+      // 如果是移动端，点击导航链接后关闭菜单
+      if (!mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+      }
+    }
+  });
+});
+
+// 回到顶部
+backToTop.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// 移动端子菜单切换
+document.querySelectorAll('.mobile-submenu-toggle').forEach(toggle => {
+  toggle.addEventListener('click', function() {
+    const submenu = this.nextElementSibling || this.parentElement.nextElementSibling;
+    submenu.classList.toggle('hidden');
+    const icon = this.querySelector('i');
+    if (submenu.classList.contains('hidden')) {
+      icon.classList.remove('fa-angle-up');
+      icon.classList.add('fa-angle-down');
+    } else {
+      icon.classList.remove('fa-angle-down');
+      icon.classList.add('fa-angle-up');
+    }
+  });
+});
+</script>
+</body>
+</html>

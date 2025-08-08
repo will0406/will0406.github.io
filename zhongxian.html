@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>东弘中纤 | 引领FRP材料新未来</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 - 更新深蓝色定义为#325f7c -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'gray-light': '#F1F5F9',
+            accent: '#165DFF',
+            'deep-blue': '#4a7a9c', // 更新为目标颜色
+            'deep-blue-light': '#4a7a9c', // 对应浅色变体
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+      }
+      .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+      .scale-hover {
+        @apply hover:scale-105 transition-all duration-300;
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+      .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    }
+  </style>
+</head>
+<body class="font-inter text-dark bg-light">
+  <!-- 导航栏 - 使用新的深蓝色 -->
+  <!-- 修改后的导航栏部分代码 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-deep-blue/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="zhongxian.html" class="flex items-center">
+        <div class="h-12 w-40 bg-cover bg-center" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+      </a>
+    
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="zhongxian.html#home" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">首页</a>
+        
+        <!-- 公司介绍带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            公司介绍
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="company-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">公司简介</a>
+              <a href="team-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">团队介绍</a>
+              <a href="awards2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">企业资质</a>
+              <a href="collaboration2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">合作伙伴</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="display.html" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">产品展示</a>
+        
+        <!-- 应用领域带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            应用领域
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="application.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">应用场景</a>
+              <a href="potential.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">市场潜力</a>
+              <a href="example.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">案例展示</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 技术与设备带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            技术与设备
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="patents.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">专利信息</a>
+              <a href="factory.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">生产基地</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">联系我们</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-white hover:text-primary">
+        <i class="fa fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 - 修改为深蓝色 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-deep-blue border-t border-deep-blue-light shadow-lg">
+      <div class="container mx-auto px-6 py-4">
+        <a href="zhongxian.html#home" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">首页</a>
+        
+        <!-- 移动端公司介绍子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            公司介绍
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="company-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">公司简介</a>
+            <a href="team-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">团队介绍</a>
+            <a href="awards2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">企业资质</a>
+            <a href="collaboration2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">合作伙伴</a>
+          </div>
+        </div>
+        
+        <a href="display.html" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">产品展示</a>
+        
+        <!-- 移动端应用领域子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            应用领域
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="application.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">应用场景</a>
+            <a href="potential.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">市场潜力</a>
+            <a href="example.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">案例展示</a>
+          </div>
+        </div>
+        
+        <!-- 移动端技术与设备子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            技术与设备
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="patents.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">专利信息</a>
+            <a href="factory.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">生产基地</a>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+    <!-- 主内容区 -->
+    <main>
+      <!-- 英雄区 -->
+      <section id="home" class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="https://pic1.imgdb.cn/item/688b395d58cb8da5c8f5af34.png" alt="FRP复合材料生产与应用场景"
+               class="w-full h-full object-cover">
+        </div>
+        
+        <div class="absolute top-0 left-0 right-0 z-40 pointer-events-auto pt-4 px-6 sm:pt-0 sm:px-8 sm:top-36 sm:left-6 sm:right-auto">
+          <a href="index.html" class="inline-flex items-center px-3 py-2 sm:px-4 sm:py-3 bg-white/20 backdrop-blur-sm hover:bg-white/40 text-white rounded-md transition-all duration-300 text-sm shadow-lg">
+            <i class="fa fa-arrow-left mr-2"></i> 访问东弘科技
+          </a>
+        </div>
+
+        
+        <!-- 核心标语 -->
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 animate-fade-in h-full flex flex-col justify-center">
+          <div class="max-w-3xl -mt-32 sm:-mt-48 pt-0 sm:pt-0 mb-0">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-white leading-tight mb-2">
+              东弘中纤（厦门）<br>
+              先进结构材料研究院
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-3 max-w-2xl">
+              DOHO FRP (Xiamen) Advanced Structural Materials Research Institute
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#products" class="px-10 py-3 bg-accent hover:bg-accent/90 text-white font-medium rounded-md transition-all duration-300 shadow-lg hover:shadow-xl">
+                查看产品 <i class="fa fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 左下角边标语 -->
+        <div class="absolute bottom-8 left-10 sm:bottom-13 sm:left-12 text-black text-left">
+          <p class="text-xl sm:text-2xl font-semibold text-shadow-lg">创新驱动</p>
+        </div>
+
+        <!-- 右下角标语 -->
+        <div class="absolute bottom-8 right-6 sm:bottom-13 sm:right-8 text-black text-right">
+          <p class="text-xl sm:text-2xl font-semibold text-shadow-lg">引领FRP材料新未来</p>
+        </div>
+        
+        <!-- 下滚指示器 -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 animate-bounce">
+          <a href="#products" class="text-white/80 hover:text-white">
+            <i class="fa fa-chevron-down text-2xl"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 核心产品 -->
+      <section id="products" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">FRP核心产品</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-3xl mx-auto">专注研发高性能纤维增强复合材料，满足新能源领域多样化需求</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 产品1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+              <div class="h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/689304d258cb8da5c80962ed.png" alt="光伏支架专用FRP型材"
+                     class="w-full h-full object-cover transition-transform duration-500">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-dark">FRP筋材</h3>
+                <p class="text-gray-600 mb-4">由纤维与树脂制成，轻质高强，强度超钢筋 2 倍，重量仅其四分之一，耐腐蚀、不导电，广泛用于建筑、桥梁等工程，提升结构寿命与安全。</p>
+                <a href="display.html" class="text-primary font-medium hover:text-accent transition-colors">
+                  查看详情 <i class="fa fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 产品2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+              <div class="h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/68930f9458cb8da5c8097ed5.png" alt="风电叶片增强材料"
+                     class="w-full h-full object-cover transition-transform duration-500">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-dark">FRP拉挤型材</h3>
+                <p class="text-gray-600 mb-4">以优质纤维为核心增强材料，经先进拉挤工艺一体成型，集轻质、高强、耐腐、抗老化于一身，广泛适配建筑、化工、交通等多领域，用可靠品质为您的项目保驾护航。</p>
+                <a href="display.html" class="text-primary font-medium hover:text-accent transition-colors">
+                  查看详情 <i class="fa fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+            
+            <!-- 产品3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+              <div class="h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6893122c58cb8da5c80987c6.jpg" alt="储能设备轻质结构材料"
+                     class="w-full h-full object-cover transition-transform duration-500">
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold mb-3 text-dark">FRP紧固件</h3>
+                <p class="text-gray-600 mb-4">采用乙烯基,环氧基树脂或聚氨酯树脂和各种增强纤维制作，具有优良的剪切强度和拉伸强度。机械和电力应用等环境来说，FRP螺栓和螺母是很好的选择。</p>
+                <a href="display.html" class="text-primary font-medium hover:text-accent transition-colors">
+                  查看详情 <i class="fa fa-angle-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 公司简介 -->
+      <section id="about" class="py-16 md:py-24 bg-white">
+              <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                  <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">关于东弘中纤</h2>
+                  <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                  <p class="text-gray-600 max-w-3xl mx-auto">东弘科技全资子公司，专注FRP复合材料全产业链研发与生产，为新能源产业提供关键材料支持。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div class="order-2 lg:order-1 animate-slide-up" style="animation-delay: 0.1s">
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    东弘中纤研究院是东弘科技全资子公司，是东弘科技在新材料领域布局的关键一环，专注于纤维增强复合材料全产业链研发，建立了 “材料设计 - 结构优化 - 装备制造 - 工程应用” 一体化体系。
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    依托华科研发平台，研究院拥有 10 项发明专利与 23 项实用新型专利，主导多项标准认证；公司在湖北、河南设有生产基地，具备规模化产能，是 FRP 材料及应用全流程解决方案供应商，核心竞争力在于以结构理论为根基，凭借独有专利配方与精准工艺技术，提供优质型材及配套服务。
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    经十五年技术创新，研究院已构建完整技术闭环，运营团队由多位专家和资深人士组成，在多个领域拥有丰富经验。其产品广泛应用于光伏支架、设施农业等诸多场景，市场潜力广阔，且与多家知名企业和院校保持深度合作，持续推动 FRP 材料的技术突破与产业落地。
+                    </p>
+                    <div class="flex flex-wrap gap-6 mt-8">
+                      <div class="flex items-center">
+                        <span class="text-3xl font-bold text-primary mr-2">20+</span>
+                        <span class="text-gray-600">年技术沉淀</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-3xl font-bold text-primary mr-2">40+</span>
+                        <span class="text-gray-600">项专利技术</span>
+                      </div>
+                      <div class="flex items-center">
+                        <span class="text-3xl font-bold text-primary mr-2">3</span>
+                        <span class="text-gray-600">大生产基地</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- 右侧图片容器调整：添加高度100%，确保与左侧文字等高 -->
+                  <div class="order-1 lg:order-2 rounded-xl overflow-hidden shadow-xl animate-slide-up h-full" style="animation-delay: 0.3s">
+                    <img src="https://pic1.imgdb.cn/item/68930bf358cb8da5c8096b0f.png" alt="东弘中纤生产基地" class="w-full h-full object-cover transition-transform duration-700">
+                  </div>
+                </div>
+              </div>
+            </section>
+
+      <!-- 联系方式 -->
+      <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <h2 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-dark mb-4">联系我们</h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+              无论您是对我们的产品感兴趣，还是有合作意向，欢迎随时与我们联系，我们将竭诚为您服务。
+            </p>
+          </div>
+          
+          <div class="bg-white rounded-2xl shadow-xl p-8 lg:p-12">
+            <h3 class="text-2xl font-bold text-dark mb-8 text-center">联系方式</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <!-- 左侧联系方式 -->
+              <div class="space-y-8">
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa fa-map-marker text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-dark mb-1">公司地址</h4>
+                    <p class="text-gray-600">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa fa-phone text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-dark mb-1">联系电话</h4>
+                    <p class="text-gray-600">+86 13850080767</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa fa-envelope text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-dark mb-1">电子邮箱</h4>
+                    <p class="text-gray-600">DOHO_Tech@163.com</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <i class="fa fa-clock-o text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-dark mb-1">工作时间</h4>
+                    <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 右侧地图 -->
+              <div class="relative h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer group transition-all duration-300 hover:shadow-xl" onclick="window.open('https://map.baidu.com/poi/万科云玺/@13157237.843509682,2798355.431624171,16.58z?uid=f78618f55b15b0c9b13c8139&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl', '_blank')">
+                <!-- 地图占位图 -->
+                <img src="https://s21.ax1x.com/2025/07/29/pVY2bgs.png" alt="公司地图位置" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-primary/10 flex items-center justify-center transition-opacity duration-300 group-hover:bg-primary/20">
+                  <div class="text-center transform transition-transform duration-300 group-hover:scale-105">
+                    <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110">
+                      <i class="fa fa-map-marker text-white text-2xl"></i>
+                    </div>
+                    <h4 class="font-bold text-dark text-xl">我们的位置</h4>
+                    <p class="text-gray-600">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="mt-12 pt-8 border-t border-gray-100">
+              <h4 class="font-medium text-dark mb-4 text-center">关注我们</h4>
+              <div class="flex justify-center space-x-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fa fa-weixin"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors">
+                  <i class="fa fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 页脚 - 使用新的深蓝色 -->
+    <footer class="bg-deep-blue text-white py-12 md:py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <!-- 品牌信息 -->
+          <div>
+            <div class="h-12 w-40 bg-cover bg-center mb-4" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+            <p class="text-white/80 mb-6">
+              专注FRP复合材料研发与生产，为新能源产业提供高性能材料解决方案，助力绿色低碳发展。
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-white/80 hover:text-white transition-colors">
+                <i class="fa fa-weixin text-xl"></i>
+              </a>
+              <a href="#" class="text-white/80 hover:text-white transition-colors">
+                <i class="fa fa-envelope text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- 快速链接 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">目录</h3>
+            <ul class="space-y-2">
+              <li><span class="text-white/80 cursor-default">首页</span></li>
+              <li><span class="text-white/80 cursor-default">公司介绍</span></li>
+              <li><span class="text-white/80 cursor-default">产品展示</span></li>
+              <li><span class="text-white/80 cursor-default">应用领域</span></li>
+              <li><span class="text-white/80 cursor-default">技术与设备</span></li>
+              <li><span class="text-white/80 cursor-default">联系我们</span></li>
+            </ul>
+          </div>
+          
+          <!-- 产品中心 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">产品中心</h3>
+            <ul class="space-y-2">
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP筋材</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP紧固件</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP模压件</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP桥梁系统</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP螺纹筋材</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">护栏&爬梯</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP光伏支架系统</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP拉挤型材</a></li>
+              <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆、筋材配件</a></li>
+            </ul>
+          </div>
+          
+          <!-- 联系信息 -->
+          <div>
+            <h3 class="text-lg font-semibold mb-4">联系信息</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <i class="fa fa-map-marker mt-1 mr-3 text-white/80"></i>
+                <span class="text-white/80">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-phone mr-3 text-white/80"></i>
+                <span class="text-white/80">+86 13850080767</span>
+              </li>
+              <li class="flex items-center">
+                <i class="fa fa-envelope mr-3 text-white/80"></i>
+                <span class="text-white/80">DOHO_Tech@163.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- 版权信息 -->
+        <div class="pt-8 border-t border-white/10 text-center text-white/60">
+          <p>© 东弘中纤（厦门）先进结构材料研究院 版权所有 | 闽ICP备12345678号</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 等待DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+          // 导航栏滚动效果
+          const navbar = document.getElementById('navbar');
+          window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+              navbar.classList.add('py-2', 'shadow-md');
+              navbar.classList.remove('py-4', 'shadow-sm');
+            } else {
+              navbar.classList.add('py-4', 'shadow-sm');
+              navbar.classList.remove('py-2', 'shadow-md');
+            }
+          });
+
+          // 移动端菜单切换
+          const menuToggle = document.getElementById('menu-toggle');
+          const mobileMenu = document.getElementById('mobile-menu');
+          
+          menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuToggle.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+              icon.classList.remove('fa-times');
+              icon.classList.add('fa-bars');
+            } else {
+              icon.classList.remove('fa-bars');
+              icon.classList.add('fa-times');
+            }
+          });
+
+          // 移动端子菜单切换
+          const submenuToggles = document.querySelectorAll('.submenu-toggle');
+          submenuToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e) {
+              e.stopPropagation(); // 防止事件冒泡
+              const content = this.parentElement.nextElementSibling;
+              content.classList.toggle('hidden');
+              this.classList.toggle('rotate-180');
+            });
+          });
+
+          // 平滑滚动
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // 关闭移动菜单（如果打开）
+              if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+              }
+              
+              // 关闭所有打开的子菜单
+              document.querySelectorAll('.submenu-content').forEach(content => {
+                content.classList.add('hidden');
+              });
+              document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+                toggle.classList.remove('rotate-180');
+              });
+              
+              // 滚动到目标位置
+              const targetId = this.getAttribute('href');
+              const targetElement = document.querySelector(targetId);
+              
+              if (targetElement) {
+                window.scrollTo({
+                  top: targetElement.offsetTop - 80, // 减去导航栏高度，避免被遮挡
+                  behavior: 'smooth'
+                });
+              }
+            });
+          });
+
+          // 滚动动画 - 元素进入视口时显示动画
+          const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+              const elementPosition = element.getBoundingClientRect().top;
+              const windowHeight = window.innerHeight;
+              
+              if (elementPosition < windowHeight * 0.85) {
+                element.classList.add('animate-slide-up');
+              }
+            });
+          };
+
+          // 初始加载时执行一次
+          animateOnScroll();
+          
+          // 滚动时执行
+          window.addEventListener('scroll', animateOnScroll);
+        });
+    </script>
+</body>
+</html>

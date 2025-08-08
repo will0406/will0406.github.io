@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>团队介绍 | 东弘科技</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'gray-light': '#F1F5F9'
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter text-dark bg-light">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-gray-800/90 backdrop-blur-md shadow-sm">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="index.html" class="flex items-center">
+            <div class="h-12 w-40 bg-cover bg-center" style="background-image: url('https://s21.ax1x.com/2025/07/29/pVY2o4g.png')"></div>
+          </a>
+        
+        <!-- 桌面导航 -->
+        <nav class="hidden md:flex items-center space-x-12">
+          <a href="index.html#home" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg">首页</a>
+          
+          <!-- 公司介绍子菜单 -->
+          <div class="relative group">
+            <a href="" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg flex items-center">
+              公司介绍
+              <i class="fa fa-angle-down ml-1 text-sm"></i>
+            </a>
+            <!-- 子菜单内容 -->
+            <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="company-introduction.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">公司简介</a>
+                <a href="team-introduction.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">团队介绍</a>
+                <a href="awards.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">企业资质</a>
+                <a href="collaboration.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">合作伙伴</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 核心产业子菜单 -->
+          <div class="relative group">
+            <a href="" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg flex items-center">
+              核心产业
+              <i class="fa fa-angle-down ml-1 text-sm"></i>
+            </a>
+            <!-- 子菜单内容 -->
+            <div class="absolute left-0 mt-2 w-48 bg-gray-900 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50">
+              <div class="py-2">
+                <a href="solar-power.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">太阳能光伏发电</a>
+                <a href="wind-power.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">风力发电</a>
+                <a href="energy-storage.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">储能系统</a>
+                <a href="materials.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">新材料</a>
+                <a href="truck.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">新能源重卡</a>
+                <a href="hydrogen.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">氢能源</a>
+                <a href="medical.html" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 hover:text-white">医疗</a>
+              </div>
+            </div>
+          </div>
+          
+          <a href="index.html#contact" class="font-medium text-white hover:text-primary transition-colors px-2 py-1 text-lg">联系方式</a>
+        </nav>
+        
+        <!-- 移动端菜单按钮 -->
+        <button id="menu-toggle" class="md:hidden text-white hover:text-primary">
+          <i class="fa fa-bars text-2xl"></i>
+        </button>
+      </div>
+      
+      <!-- 移动端导航菜单 -->
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+          <!-- 移动端菜单项带子菜单 -->
+          <div class="mb-4">
+            <a href="index.html#home" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg block">首页</a>
+          </div>
+          
+          <!-- 公司介绍移动端子菜单 -->
+          <div class="mb-4 border-b border-gray-700 pb-2">
+            <div class="flex justify-between items-center">
+              <a href="#about" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg">公司介绍</a>
+              <button class="mobile-submenu-toggle text-white">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </div>
+            <div class="mobile-submenu hidden pl-4 mt-2">
+              <a href="company-introduction.html" class="block py-2 text-gray-300 hover:text-white">公司简介</a>
+              <a href="team-introduction.html" class="block py-2 text-gray-300 hover:text-white">团队介绍</a>
+              <a href="awards.html" class="block py-2 text-gray-300 hover:text-white">企业资质</a>
+              <a href="collaboration.html" class="block py-2 text-gray-300 hover:text-white">合作伙伴</a>
+            </div>
+          </div>
+          
+          <!-- 核心产业移动端子菜单 -->
+          <div class="mb-4 border-b border-gray-700 pb-2">
+            <div class="flex justify-between items-center">
+              <a href="#industry" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg">核心产业</a>
+              <button class="mobile-submenu-toggle text-white">
+                <i class="fa fa-angle-down"></i>
+              </button>
+            </div>
+            <div class="mobile-submenu hidden pl-4 mt-2">
+              <a href="solar-power.html" class="block py-2 text-gray-300 hover:text-white">太阳能光伏发电</a>
+              <a href="wind-power.html" class="block py-2 text-gray-300 hover:text-white">风力发电</a>
+              <a href="energy-storage.html" class="block py-2 text-gray-300 hover:text-white">储能系统</a>
+              <a href="materials.html" class="block py-2 text-gray-300 hover:text-white">新材料</a>
+              <a href="truck.html" class="block py-2 text-gray-300 hover:text-white">新能源重卡</a>
+              <a href="hydrogen.html" class="block py-2 text-gray-300 hover:text-white">氢能源</a>
+              <a href="medical.html" class="block py-2 text-gray-300 hover:text-white">医疗</a>
+            </div>
+          </div>
+          
+          <!-- 联系方式 -->
+          <div class="mb-4">
+            <a href="index.html#contact" class="font-medium text-white hover:text-primary transition-colors py-3 text-lg block">联系方式</a>
+          </div>
+        </div>
+      </div>
+    </header>
+<body class="font-inter text-dark bg-light pt-20">
+  
+  <!-- 页面主体内容 -->
+  <main>
+    <!-- banner区域 -->
+    <section class="relative h-64 md:h-80 bg-gray-100 overflow-hidden pb-8">
+        <div class="absolute inset-0 z-0">
+          <img src="https://s21.ax1x.com/2025/07/23/pVG07h6.png" alt="东弘科技企业形象" class="w-full h-full object-cover opacity-60">
+          <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 h-full flex items-end pb-12">
+          <div>
+              
+            <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-4">团队介绍</h1>
+            <div class="flex items-center text-white/90">
+              <a href="index.html#home" class="hover:text-white transition-colors">首页</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <a href="index.html#about" class="hover:text-white transition-colors">公司介绍</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <span>团队介绍</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- 团队介绍 -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-6 text-dark">我们的团队</h2>
+        <div class="w-16 h-1 bg-primary mb-8"></div>
+        
+        <p class="text-gray-600 leading-relaxed mb-10 max-w-none">
+        东弘科技团队始终坚持"创新、协作、诚信、卓越"的核心价值观，以技术创新为驱动力，以团队协作为基础，以诚信经营为准则，追求卓越品质，致力于推动新能源产业的发展，为全球能源转型贡献力量。我们相信，优秀的团队是企业发展的核心动力。通过持续培养和引进高素质人才，构建多元化、专业化的人才梯队，东弘科技正不断提升核心竞争力，朝着成为全球领先的新能源解决方案提供商的目标稳步前进。
+        </p>
+            
+        <!-- 团队成员展示 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 团队成员1 -->
+          <div class="bg-gray-light rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md">
+              <img src="https://pic1.imgdb.cn/item/6889d74d58cb8da5c8f03e28.png" alt="张明 - 创始人兼CEO" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-bold mb-2">冯意山 ｜ 董事长</h3>
+            <p class="text-primary mb-4">厦门市上海商会会长<br>
+            清大明韵(厦门)创业投资限公司合伙人</p>
+            <p class="text-gray-600 mb-4">
+              拥有创办和经营IPO项目丰富经验和广泛的社会资源，积累了丰富的行业和国有资本资源，具有较强的资本和资源整合能力。负责政府产业基金、国资平台融资、并购项目等运营管理，同时带产业、引资本，为各地政府招商引资赋能。
+            </p>
+            <div class="flex space-x-4">
+
+              </a>
+            </div>
+          </div>
+        
+          
+          <!-- 团队成员2 -->
+          <div class="bg-gray-light rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md">
+              <img src="https://pic1.imgdb.cn/item/6889d78458cb8da5c8f03ebc.png" alt="张明 - 创始人兼CEO" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-bold mb-2">薛惠贞 | 总裁</h3>
+            <p class="text-primary mb-4">厦门市上海商会执行会长<br>
+            清大明韵(厦门)创业投资限公司合伙人</p>
+            <p class="text-gray-600 mb-4">
+            1998年起在厦经营连锁品牌，任总经理兼人资总监；2010年进入管理咨询行业，为全国  几十家中小企业在经营管理上赋能。负责政府产业基金、国资平台融资、并购项目等运    营管理、制定企业战略目标，负责公司经营、财务管理。
+
+            </p>
+            <div class="flex space-x-4">
+
+              </a>
+            </div>
+          </div>
+          
+          <!-- 团队成员3 -->
+          <div class="bg-gray-light rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow text-center">
+            <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white shadow-md">
+              <img src="https://pic1.imgdb.cn/item/6889d78458cb8da5c8f03ebd.png" alt="张明 - 创始人兼CEO" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-bold mb-2">庞军 | 专家顾问</h3>
+            <p class="text-primary mb-4">中国能源研究会专委<br>
+            原国家电投集团北方新能源公司执行董事<br>
+            原中广核新能源公司辽宁/安徽公司副总经理<br>
+            原中广核太阳能公司山东分公司总经理
+
+            <p class="text-gray-600 mb-4">
+            高级工程师，深耕新能源领域20年，关注研究领域和产业包括新型高效光伏组件、微风发电、动力储能及电储能，氢能制储运及应用拓展，生物质开发与利用，低碳园区和综合智慧能源   服务、碳管理。新能源主张：源随荷动，电从身边来，氢管网，绿电就地转化二次能源。
+
+            </p>
+            <div class="flex space-x-4">
+
+              </a>
+            </div>
+          </div>
+        </div>
+        
+    </section>
+    
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <!-- 替换为图片 -->
+          <div class="mb-6">
+            <img src="https://s21.ax1x.com/2025/07/29/pVY2o4g.png" alt="东弘科技Logo" class="h-12">
+          </div>
+          <p class="text-gray-400 mb-6">
+            东弘科技致力于新能源技术的研发与应用，为全球提供高效、清洁、可持续的能源解决方案。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">目录</h4>
+          <ul class="space-y-3">
+            <li class="text-gray-400">首页</li>
+            <li class="text-gray-400">公司介绍</li>
+            <li class="text-gray-400">核心产业</li>
+            <li class="text-gray-400">联系方式</li>
+          </ul>
+        </div>
+        
+        <div>
+            <h4 class="text-lg font-bold mb-6">核心产业</h4>
+                      <ul class="space-y-3">
+                        <li><a href="solar-power.html" class="text-gray-400 hover:text-white transition-colors">太阳能光伏发电</a></li>
+                        <li><a href="wind-power.html" class="text-gray-400 hover:text-white transition-colors">风力发电</a></li>
+                        <li><a href="energy-storage.html" class="text-gray-400 hover:text-white transition-colors">储能系统</a></li>
+                        <li><a href="materials.html" class="text-gray-400 hover:text-white transition-colors">新材料</a></li>
+                        <li><a href="truck.html" class="text-gray-400 hover:text-white transition-colors">新能源重卡</a></li>
+                        <li><a href="hydrogen.html" class="text-gray-400 hover:text-white transition-colors">氢能源</a></li>
+                        <li><a href="medical.html" class="text-gray-400 hover:text-white transition-colors">医疗</a></li>
+                      </ul>
+                    </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-6">联系方式</h4>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <i class="fa fa-map-marker text-primary mt-1"></i>
+              <span class="text-gray-400">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fa fa-phone text-primary mt-1"></i>
+              <span class="text-gray-400">+86 13850080767</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fa fa-envelope text-primary mt-1"></i>
+              <span class="text-gray-400">DOHO_Tech@163.com</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <i class="fa fa-clock-o text-primary mt-1"></i>
+              <span class="text-gray-400">周一至周五: 9:00 - 18:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 东弘科技. 保留所有权利.</p>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+  <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+  // 导航栏滚动效果
+  const navbar = document.getElementById('navbar');
+  const backToTop = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 100) {
+      navbar.classList.add('py-2', 'shadow-md', 'bg-gray-900/95');
+      navbar.classList.remove('py-3', 'shadow-sm', 'bg-gray-800/90');
+      backToTop.classList.remove('opacity-0', 'invisible');
+      backToTop.classList.add('opacity-100', 'visible');
+    } else {
+      navbar.classList.add('py-3', 'shadow-sm', 'bg-gray-800/90');
+      navbar.classList.remove('py-2', 'shadow-md', 'bg-gray-900/95');
+      backToTop.classList.add('opacity-0', 'invisible');
+      backToTop.classList.remove('opacity-100', 'visible');
+    }
+  });
+
+  // 移动端菜单切换
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle.addEventListener('click', function() {
+    mobileMenu.classList.toggle('hidden');
+    if (mobileMenu.classList.contains('hidden')) {
+      menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+    } else {
+      menuToggle.innerHTML = '<i class="fa fa-times text-xl"></i>';
+    }
+  });
+
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+        
+        // 如果是移动端，点击导航链接后关闭菜单
+        if (!mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          menuToggle.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+        }
+      }
+    });
+  });
+
+  // 回到顶部
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // 移动端子菜单切换
+  document.querySelectorAll('.mobile-submenu-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const submenu = this.nextElementSibling || this.parentElement.nextElementSibling;
+      submenu.classList.toggle('hidden');
+      const icon = this.querySelector('i');
+      if (submenu.classList.contains('hidden')) {
+        icon.classList.remove('fa-angle-up');
+        icon.classList.add('fa-angle-down');
+      } else {
+        icon.classList.remove('fa-angle-down');
+        icon.classList.add('fa-angle-up');
+      }
+    });
+  });
+  </script>
+</body>
+</html>

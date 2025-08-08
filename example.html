@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例展示 | 东弘中纤</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 - 更新深蓝色定义为#325f7c -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            dark: '#1E293B',
+            light: '#F8FAFC',
+            'gray-light': '#F1F5F9',
+            accent: '#165DFF',
+            'deep-blue': '#4a7a9c', // 更新为目标颜色
+            'deep-blue-light': '#4a7a9c', // 对应浅色变体
+          },
+          fontFamily: {
+            inter: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .text-shadow-lg {
+        text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+      }
+      .transition-transform {
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+      }
+      .scale-hover {
+        @apply hover:scale-105 transition-all duration-300;
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+      .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      .animate-slide-up {
+        animation: slideUp 0.8s ease-out;
+      }
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+      .hover-lift {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter text-dark bg-light">
+  <!-- 导航栏 - 使用新的深蓝色 -->
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-deep-blue/90 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="zhongxian.html" class="flex items-center">
+        <div class="h-12 w-40 bg-cover bg-center" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+      </a>
+    
+      <!-- 桌面导航 -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="zhongxian.html#home" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">首页</a>
+        
+        <!-- 公司介绍带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            公司介绍
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="company-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">公司简介</a>
+              <a href="team-introduction2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">团队介绍</a>
+              <a href="awards2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">企业资质</a>
+              <a href="collaboration2.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">合作伙伴</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="display.html" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">产品展示</a>
+        
+        <!-- 应用领域带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            应用领域
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="application.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">应用场景</a>
+              <a href="potential.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">市场潜力</a>
+              <a href="example.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">案例展示</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 技术与设备带下拉菜单 -->
+        <div class="relative group">
+          <a href="" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg flex items-center">
+            技术与设备
+            <i class="fa fa-chevron-down ml-1 text-xs transition-transform group-hover:rotate-180"></i>
+          </a>
+          <div class="absolute left-0 mt-2 w-48 bg-deep-blue-light rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100 z-50">
+            <div class="py-2">
+              <a href="patents.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">专利信息</a>
+              <a href="factory.html" class="block px-4 py-2 text-sm text-white hover:bg-primary/80 transition-colors">生产基地</a>
+            </div>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="text-white hover:text-primary transition-colors font-medium text-base md:text-lg">联系我们</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-white hover:text-primary">
+        <i class="fa fa-bars text-2xl"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 - 修改为深蓝色 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-deep-blue border-t border-deep-blue-light shadow-lg">
+      <div class="container mx-auto px-6 py-4">
+        <a href="zhongxian.html#home" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">首页</a>
+        
+        <!-- 移动端公司介绍子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            公司介绍
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="company-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">公司简介</a>
+            <a href="team-introduction2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">团队介绍</a>
+            <a href="awards2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">企业资质</a>
+            <a href="collaboration2.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">合作伙伴</a>
+          </div>
+        </div>
+        
+        <a href="display.html" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">产品展示</a>
+        
+        <!-- 移动端应用领域子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            应用领域
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="application.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">应用场景</a>
+            <a href="potential.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">市场潜力</a>
+            <a href="example.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">案例展示</a>
+          </div>
+        </div>
+        
+        <!-- 移动端技术与设备子菜单 -->
+        <div class="mobile-submenu">
+          <button class="w-full flex justify-between items-center font-medium text-white hover:text-primary transition-colors py-3 text-base">
+            技术与设备
+            <i class="fa fa-chevron-down text-xs submenu-toggle"></i>
+          </button>
+          <div class="submenu-content hidden pl-4 border-l-2 border-primary/50">
+            <a href="patents.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">专利信息</a>
+            <a href="factory.html" class="font-medium text-white/90 hover:text-primary transition-colors py-2 text-sm block">生产基地</a>
+          </div>
+        </div>
+        
+        <a href="zhongxian.html#contact" class="font-medium text-white hover:text-primary transition-colors py-3 text-base block">联系我们</a>
+      </div>
+    </div>
+  </header>
+<body class="font-inter text-dark bg-light pt-20">
+  
+  
+  
+  <!-- 页面主体内容 -->
+  <main>
+    <!--  banner区域 -->
+    <section class="relative h-64 md:h-80 bg-gray-100 overflow-hidden pb-8"> <!-- 增加了pb-8 -->
+        <div class="absolute inset-0 z-0">
+          <img src="https://pic1.imgdb.cn/item/6891ab4158cb8da5c805fa28.png" alt="东弘科技企业形象" class="w-full h-full object-cover opacity-60">
+          <div class="absolute inset-0 bg-dark/40"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 h-full flex items-end pb-12"> <!-- 改为items-end并增加pb-12 -->
+          <div>
+              
+            <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-white mb-4">案例展示</h1>
+            <div class="flex items-center text-white/90">
+              <a href="zhongxian.html#home" class="hover:text-white transition-colors">首页</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <a href="" class="hover:text-white transition-colors">应用领域</a>
+              <i class="fa fa-angle-right mx-3 text-sm"></i>
+              <span>案例展示</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    <!-- 公司简介和产品展示容器 -->
+    
+    <!-- 案例展示内容区域 -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-6">
+          <div class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-dark">案例展示</h2>
+            <div class="w-16 h-1 bg-primary mb-8"></div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+            我们精选了多个领域的标杆项目，涵盖光伏、桥梁、建筑等应用场景，展示FRP材料在各类工程中的创新解决方案与实践成果。
+            </p>
+          </div>
+
+        <!-- 案例网格 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 案例1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case1">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892cf2a58cb8da5c808ac09.png" alt="光伏支架系统案例" class="w-full h-full object-cover transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-primary text-white text-sm px-3 py-1 rounded-full">
+                  光伏领域
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">新疆柯坪光伏项目</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                恶劣环境地面集中式光伏: 特变电工新疆柯坪36"单立柱式FRP支架。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 2023</span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 案例2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case2">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892d3d358cb8da5c808bcf1.png" alt="桥梁加固案例" class="w-full h-full object-cover transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-deep-blue text-white text-sm px-3 py-1 rounded-full">
+                  桥梁工程
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">漯河解放路沙河大桥FRP桁架加固改造</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                通过在桥梁结构关键部位加装轻质高强、耐腐蚀的FRP桁架，以提升桥梁的承载能力、耐久性和抗震性能。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 2016</span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 案例3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case3">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892d65858cb8da5c808d152.png" alt="建筑外墙案例" class="w-full h-full object-cover transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-secondary text-white text-sm px-3 py-1 rounded-full">
+                  无磁实验室
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">昆明FRP结构军工无磁实验室</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                2015年建成的昆明FRP结构军工无磁实验室，以国内首创的非金属无磁结构实现大跨度无盖设计，成功攻克相关技术难题。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 2015</span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 案例4 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case4">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892db7a58cb8da5c808ee1f.png" alt="风电案例" class="w-full h-full object-cover transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-secondary text-white text-sm px-3 py-1 rounded-full">
+                  厂房建筑
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">海南昌江县工业生产车间</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                FRP因耐候、防腐、轻质等特性，被用于屋顶结构、防腐设施及临时构筑物，适配热带工业环境与产业园建筑需求。
+
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i>2018 </span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 案例5 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case5">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892dd3558cb8da5c808eee9.png" alt="光伏屋顶案例" class="w-full h-full object-cover transition-transform duration-700">
+                <div class="absolute top-4 left-4 bg-primary text-white text-sm px-3 py-1 rounded-full">
+                  光伏领域
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">三峡新能源曲阳光伏项目</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                常规地面集中式光伏：三峡新能源曲阳项目地面站式双列组件FRP光伏支架
+
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 2015</span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 案例6 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-md hover-lift animate-on-scroll" data-case-id="case6">
+              <div class="relative h-56 overflow-hidden">
+                <img src="https://pic1.imgdb.cn/item/6892e07b58cb8da5c808f1c0.png" alt="市政工程案例" class="w-full h-full object-cover transition-transform duration-700">
+                    <div class="absolute top-4 left-4 bg-secondary text-white text-sm px-3 py-1 rounded-full">
+                      设施农业大棚
+                    </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2 text-dark hover:text-primary transition-colors">
+                  <a href="#">渔光/畜光/农光/互补FRP大棚</a>
+                </h3>
+                <p class="text-gray-600 mb-4 line-clamp-2">
+                FRP适用于全国工厂化渔光互补、工业化畜光互补及现代化农光互补大棚的支架、覆盖层等场景。
+                </p>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-500 text-sm"><i class="fa fa-calendar-o mr-1"></i> 2024</span>
+                  <a href="#" class="text-primary hover:text-primary/80 transition-colors flex items-center">
+                    查看详情 <i class="fa fa-arrow-right ml-2 text-sm"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+            </div>
+            </section>
+
+            <!-- 案例详情模态框 (默认隐藏) -->
+            <div id="case-modal" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+              <div class="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm" id="modal-overlay"></div>
+              <div class="relative bg-white rounded-xl w-full max-w-4xl max-h-[90vh] overflow-auto shadow-2xl animate-fade-in">
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
+                  <i class="fa fa-times text-xl"></i>
+                </button>
+                <div class="p-6 md:p-8" id="modal-content">
+                  <!-- 模态框内容将通过JS动态加载 -->
+                </div>
+              </div>
+            </div>
+
+
+            <!-- 案例模态框相关JS -->
+            <script>
+              // 案例数据（已移除解决方案部分）
+              const caseData = {
+                case1: {
+                  category: "光伏领域",
+                  title: "新疆柯坪光伏项目",
+                  date: "2023",
+                  location: "新疆柯坪县",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892cf2a58cb8da5c808ac09.png",
+                    "https://pic1.imgdb.cn/item/6892cef858cb8da5c808ab65.png"
+                  ],
+                  overview: `该项目为大型地面集中式光伏电站，采用特变电工新疆柯坪36"单立柱式FRP支架系统。项目位于气候条件较为恶劣的地区，对支架的耐腐蚀性和耐久性有极高要求。`,
+                  results: {
+                    "风压": "0.49KN",
+                    "跨度": "3.5米",
+                    "安装效率": "提升30%",
+                    "维护成本": "降低80%"
+                  }
+                },
+                case2: {
+                  category: "桥梁工程",
+                  title: "漯河解放路沙河大桥FRP桁架加固改造",
+                  date: "2016",
+                  location: "河南省漯河市",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892d3d358cb8da5c808bcf1.png",
+                    "https://pic1.imgdb.cn/item/6892d4c058cb8da5c808c45c.png"
+                  ],
+                  overview: `漯河解放路沙河大桥是当地重要的交通枢纽，由于建成时间较长，需要进行结构加固以提升承载能力和安全性。项目采用FRP桁架进行加固改造，取得了显著效果。`,
+                  results: {
+                    "总长": "260米",
+                    "单跨度": "50米",
+                    "钢结构重量": "1/4",
+                    "建筑容量": "250M"
+                  }
+                },
+                case3: {
+                  category: "建筑领域",
+                  title: "昆明FRP结构军工无磁实验室",
+                  date: "2015",
+                  location: "昆明",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892d65858cb8da5c808d152.png",
+                    "https://pic1.imgdb.cn/item/6892d65858cb8da5c808d14f.png"
+                  ],
+                  overview: `2015年，昆明某军工无磁实验室采用FRP（纤维增强复合材料）构建主体结构，以国内首创的技术方案突破了非金属无磁材料在大跨度建筑中的应用瓶颈，不仅实现了完全无磁的特殊环境要求，还成功打造出大跨度无盖的空间形态，为军工领域对无磁、大空间实验环境的特殊需求提供了创新性解决方案，填补了国内相关领域的技术空白。`,
+                  results: {
+                    "解决难题": "新颖外观",
+                    "解决难题": "非金属无磁结构",
+                    "解决难题": "大跨度无盖",
+                    "解决难题": "非金属无磁结构"
+                  }
+                },
+                case4: {
+                  category: "建筑领域",
+                  title: "海南昌江县工业生产车间",
+                  date: "2018",
+                  location: "海南省昌江县",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892db7a58cb8da5c808ee1f.png",
+                    "https://pic1.imgdb.cn/item/6892db7a58cb8da5c808ee20.png"
+                  ],
+                  overview: `在海南昌江县现代产业园的工业生产车间这一现代产业园建筑中，FRP（纤维增强复合材料）的使用场景广泛且精准，既用于车间屋顶承重檩条、墙面支撑骨架等结构构件，凭借轻质高强与耐海南高湿高温环境下锈蚀的特性替代传统材料，也以透光板材形式应用于侧墙和采光顶，利用透光性降低照明能耗并抵御强日照风雨，还在化工相关区域作为管道、储罐及防腐层发挥化学稳定性优势，同时用于物流雨棚等临时构筑物满足快速组装与低维护需求，充分适配热带工业环境与现代产业园对建筑性能的多重要求。`,
+                  results: {
+                    "宽度": "100米",
+                    "柱跨": "11米",
+                    "重量减轻": "68%",
+                    "风压": "14级"
+                  }
+                },
+                case5: {
+                  category: "光伏领域",
+                  title: "三峡新能源曲阳光伏项目",
+                  date: "2015",
+                  location: "河北省曲阳县",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892dd3558cb8da5c808eee9.png",
+                    "https://pic1.imgdb.cn/item/6892dd3558cb8da5c808eee8.png"
+                  ],
+                  overview: `在三峡新能源曲阳常规地面集中式光伏项目中，地面站式双列组件所采用的FRP光伏支架，凭借其轻质高强、抗腐蚀、耐候性强的特性，适配当地多风雨、高湿度的气候环境，既能有效支撑双列排布的光伏组件以提升土地利用率，又能减少传统金属支架的锈蚀风险与维护成本，同时通过优化支架倾角与间距设计，确保组件充分接收光照，为项目稳定发电提供了可靠的结构支撑。`,
+                  results: {
+                    "建筑容量": "11MW",
+                    "使用寿命": "25年",
+                    "风压": "0.49KN",
+                    "": ""
+                  }
+                },
+                case6: {
+                  category: "设施农业大棚",
+                  title: "渔光/畜光/农光/互补FRP大棚",
+                  date: "2024",
+                  location: "全国",
+                  images: [
+                    "https://pic1.imgdb.cn/item/6892e07b58cb8da5c808f1c0.png",
+                    "https://pic1.imgdb.cn/item/6892e07b58cb8da5c808f1c1.png"
+                  ],
+                  overview: `FRP（纤维增强复合材料）凭借耐水防腐、抗紫外线、轻质易安装及环境适应性强的特性，广泛适用于全国范围内工厂化渔光互补项目的光伏支架与水上设施、工业化畜光互补中的棚顶支撑及围栏，以及现代化农光互补大棚的骨架、透光覆盖层等场景，能耐受多水环境、畜禽养殖环境及田间高湿条件，适配各类“光伏+”农业模式的特殊需求。`,
+                  results: {
+                    "": "",
+                    "": "",
+                    "": "",
+                    "": ""
+                  }
+                }
+              };
+
+              // 案例模态框功能
+              document.addEventListener('DOMContentLoaded', function() {
+                const modal = document.getElementById('case-modal');
+                const modalOverlay = document.getElementById('modal-overlay');
+                const closeModal = document.getElementById('close-modal');
+                const modalContent = document.getElementById('modal-content');
+                const caseCards = document.querySelectorAll('.hover-lift');
+                
+                // 打开模态框并加载对应案例内容
+                caseCards.forEach(card => {
+                  // 为卡片内所有链接添加点击事件
+                  card.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      const caseId = card.getAttribute('data-case-id');
+                      loadCaseContent(caseId);
+                      modal.classList.remove('hidden');
+                      document.body.style.overflow = 'hidden'; // 防止背景滚动
+                    });
+                  });
+                });
+                
+                // 加载案例内容到模态框（已移除解决方案部分）
+                function loadCaseContent(caseId) {
+                  const caseInfo = caseData[caseId];
+                  if (!caseInfo) return;
+                  
+                  // 构建结果数据HTML
+                  let resultsHtml = '';
+                  Object.entries(caseInfo.results).forEach(([key, value]) => {
+                    resultsHtml += `
+                      <div class="text-center">
+                        <div class="text-3xl font-bold text-primary mb-1">${value}</div>
+                        <div class="text-gray-600 text-sm">${key}</div>
+                      </div>
+                    `;
+                  });
+                  
+                  // 填充模态框内容（已移除解决方案部分）
+                  modalContent.innerHTML = `
+                    <div class="mb-6">
+                      <span class="inline-block px-3 py-1 bg-primary/10 text-primary text-sm rounded-full mb-4">${caseInfo.category}</span>
+                      <h2 class="text-2xl md:text-3xl font-bold text-dark mb-2">${caseInfo.title}</h2>
+                      <div class="flex items-center text-gray-500 text-sm mb-6">
+                        <span class="mr-4"><i class="fa fa-calendar-o mr-1"></i> ${caseInfo.date}</span>
+                        <span><i class="fa fa-map-marker mr-1"></i> ${caseInfo.location}</span>
+                      </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                      <img src="${caseInfo.images[0]}" alt="${caseInfo.title}详情图1" class="w-full h-64 object-cover rounded-lg">
+                      <img src="${caseInfo.images[1]}" alt="${caseInfo.title}详情图2" class="w-full h-64 object-cover rounded-lg">
+                    </div>
+                    
+                    <div class="mb-6">
+                      <h3 class="text-xl font-semibold mb-3 text-dark">项目概况</h3>
+                      <p class="text-gray-600 mb-4 leading-relaxed">
+                        ${caseInfo.overview}
+                      </p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-5 rounded-lg mb-6">
+                      <h3 class="text-xl font-semibold mb-3 text-dark">项目成果</h3>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        ${resultsHtml}
+                      </div>
+                    </div>
+                  `;
+                }
+                
+                // 关闭模态框
+                function hideModal() {
+                  modal.classList.add('hidden');
+                  document.body.style.overflow = ''; // 恢复背景滚动
+                }
+                
+                closeModal.addEventListener('click', hideModal);
+                modalOverlay.addEventListener('click', hideModal);
+                
+                // 按ESC键关闭模态框
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    hideModal();
+                  }
+                });
+              });
+            </script>
+
+
+    
+    
+<!-- 页脚 - 使用新的深蓝色 -->
+<footer class="bg-deep-blue text-white py-12 md:py-16">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <!-- 品牌信息 -->
+      <div>
+        <div class="h-12 w-40 bg-cover bg-center mb-4" style="background-image: url('https://pic1.imgdb.cn/item/6890266058cb8da5c802273f.png')"></div>
+        <p class="text-white/80 mb-6">
+          专注FRP复合材料研发与生产，为新能源产业提供高性能材料解决方案，助力绿色低碳发展。
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="text-white/80 hover:text-white transition-colors">
+            <i class="fa fa-weixin text-xl"></i>
+          </a>
+          <a href="#" class="text-white/80 hover:text-white transition-colors">
+            <i class="fa fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- 快速链接 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">目录</h3>
+        <ul class="space-y-2">
+          <li><span class="text-white/80 cursor-default">首页</span></li>
+          <li><span class="text-white/80 cursor-default">公司介绍</span></li>
+          <li><span class="text-white/80 cursor-default">产品展示</span></li>
+          <li><span class="text-white/80 cursor-default">应用领域</span></li>
+          <li><span class="text-white/80 cursor-default">技术与设备</span></li>
+          <li><span class="text-white/80 cursor-default">联系我们</span></li>
+        </ul>
+      </div>
+      
+      <!-- 产品中心 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">产品中心</h3>
+        <ul class="space-y-2">
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP筋材</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP紧固件</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP模压件</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP桥梁系统</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP螺纹筋材</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">护栏&爬梯</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP光伏支架系统</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP拉挤型材</a></li>
+          <li><a href="display.html" class="text-white/80 hover:text-white transition-colors">FRP锚杆、筋材配件</a></li>
+        </ul>
+      </div>
+      
+      <!-- 联系信息 -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4">联系信息</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <i class="fa fa-map-marker mt-1 mr-3 text-white/80"></i>
+            <span class="text-white/80">福建省厦门市湖里区高林中路535号万科云玺一号楼领航501室</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa fa-phone mr-3 text-white/80"></i>
+            <span class="text-white/80">+86 13850080767</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fa fa-envelope mr-3 text-white/80"></i>
+            <span class="text-white/80">DOHO_Tech@163.com</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- 版权信息 -->
+    <div class="pt-8 border-t border-white/10 text-center text-white/60">
+      <p>© 东弘中纤（厦门）先进结构材料研究院 版权所有 | 闽ICP备12345678号</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+    // 等待DOM加载完成后执行
+    document.addEventListener('DOMContentLoaded', function() {
+      // 导航栏滚动效果
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          navbar.classList.add('py-2', 'shadow-md');
+          navbar.classList.remove('py-4', 'shadow-sm');
+        } else {
+          navbar.classList.add('py-4', 'shadow-sm');
+          navbar.classList.remove('py-2', 'shadow-md');
+        }
+      });
+
+      // 移动端菜单切换
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+        // 切换图标
+        const icon = menuToggle.querySelector('i');
+        if (mobileMenu.classList.contains('hidden')) {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        } else {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        }
+      });
+
+      // 移动端子菜单切换
+      const submenuToggles = document.querySelectorAll('.submenu-toggle');
+      submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation(); // 防止事件冒泡
+          const content = this.parentElement.nextElementSibling;
+          content.classList.toggle('hidden');
+          this.classList.toggle('rotate-180');
+        });
+      });
+
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // 关闭移动菜单（如果打开）
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+          
+          // 关闭所有打开的子菜单
+          document.querySelectorAll('.submenu-content').forEach(content => {
+            content.classList.add('hidden');
+          });
+          document.querySelectorAll('.submenu-toggle').forEach(toggle => {
+            toggle.classList.remove('rotate-180');
+          });
+          
+          // 滚动到目标位置
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80, // 减去导航栏高度，避免被遮挡
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 滚动动画 - 元素进入视口时显示动画
+      const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        
+        elements.forEach(element => {
+          const elementPosition = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          
+          if (elementPosition < windowHeight * 0.85) {
+            element.classList.add('animate-slide-up');
+          }
+        });
+      };
+
+      // 初始加载时执行一次
+      animateOnScroll();
+      
+      // 滚动时执行
+      window.addEventListener('scroll', animateOnScroll);
+    });
+</script>
+</body>
+</html>
+
+
